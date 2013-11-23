@@ -1,0 +1,13 @@
+Gem::Specification.new do |s|
+  s.name        = 'jsontochart'
+  s.version     = '0.0.1'
+  s.date        = '2013-11-22'
+  s.summary     = "Turns JSONs into charts"
+  s.description = "Take JSON files and outputs html for various types of charts"
+  s.authors     = ["M. C. McGrath"]
+  s.email       = 'shidash@shidash.com'
+  s.files       = ["lib/jsontochart.rb"]
+  s.homepage    =
+    'http://transparencytoolkit.org'
+  s.license       = 'GPL'
+end

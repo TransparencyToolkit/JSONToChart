@@ -1,0 +1,14 @@
+This gem turns JSON files into Google Charts. It is a work in progress and more chart types will be supported in the near future.
+
+Setup-
+1. Install: gem install jsontochart
+2. Add to top of file: require 'jsontochart' or Add to Gemfile: gem 'jsontochart'
+
+
+Types of Charts-
+
+Table:
+Outputs html for a nice looking table.
+
+j = JSONToChart.new("jsonfile.json")
+j.table
