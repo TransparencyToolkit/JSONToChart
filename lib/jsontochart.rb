@@ -7,7 +7,7 @@ class JSONToChart
 
   # Gets titles for columns and type of data then formats for table
   def columns
-    data = JSON.parse(File.read(@input))
+    data = JSON.parse(@input)
     keylist = Array.new
     columnstring = "\n"
 
@@ -35,7 +35,7 @@ class JSONToChart
 
   # Gets a list of all the column titles without formatting
   def columntitles
-    data = JSON.parse(File.read(@input))
+    data = JSON.parse(@input)
     keylist = Array.new
 
     data.each do |l|
@@ -52,7 +52,7 @@ class JSONToChart
 
   # Converts data in JSON to format for table
   def rows(keylist)
-    data = JSON.parse(File.read(@input))
+    data = JSON.parse(@input)
     savestring = "data.addRows([\n"
     j = 0
 
