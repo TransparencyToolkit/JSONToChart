@@ -25,6 +25,7 @@ class JSONToChart
             columnstring = columnstring + "data.addColumn('string', '" + key + "');\n"
           elsif dhash[key] == true || dhash[key] == false
             columnstring = columnstring + "data.addColumn('boolean', '" + key + "');\n"
+          else columnstring = columnstring + "data.addColumn('string', '" + key + "');\n"
           end
         end
       end
@@ -71,6 +72,7 @@ class JSONToChart
             tmpstring = tmpstring + dhash[key].to_s
           elsif dhash[key] == true || dhash[key] == false
             tmpstring = tmpstring + dhash[key].to_s
+          else tmpstring = tmpstring + " "
           end
         end
 
