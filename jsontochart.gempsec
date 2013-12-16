@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'jsontochart'
-  s.version     = '0.1.0'
+  s.version     = '0.1.4'
   s.date        = '2013-12-15'
   s.summary     = "Turns JSONs into charts"
   s.description = "Take JSON files and outputs html for various types of charts"

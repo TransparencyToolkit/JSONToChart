@@ -67,7 +67,7 @@ class JSONToChart
         # Add data correctly for the type
         if dhash[key] != nil 
           if dhash[key].is_a? String
-            tmpstring = tmpstring + "'" + dhash[key] + "'"
+            tmpstring = tmpstring + "'" + dhash[key].gsub(/'/, "\\'") + "'"
           elsif dhash[key].is_a? Integer
             tmpstring = tmpstring + dhash[key].to_s
           elsif dhash[key] == true || dhash[key] == false
@@ -77,7 +77,7 @@ class JSONToChart
             z = 0
             dhash[key].each do |i|
               z += 1
-              hold = hold + i.to_s
+              hold = hold + (i.to_s).gsub(/'/, "\\'")
               if j < dhash[key].length
                 hold = hold + ","
               end
