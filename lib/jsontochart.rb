@@ -72,8 +72,21 @@ class JSONToChart
             tmpstring = tmpstring + dhash[key].to_s
           elsif dhash[key] == true || dhash[key] == false
             tmpstring = tmpstring + dhash[key].to_s
-          else tmpstring = tmpstring + " "
+          elsif dhash[key].is_a? Array
+            hold = "'"
+            z = 0
+            dhash[key].each do |i|
+              z += 1
+              hold = hold + i.to_s
+              if j < dhash[key].length
+                hold = hold + ","
+              end
+            end
+            hold = hold + "'"
+            tmpstring = tmpstring + hold
+          else tmpstring = tmpstring + "'" + dhash[key].to_s + "'"
           end
+        else tmpstring = tmpstring + "null"
         end
 
         # Check if it is the end of the line and append correct characters
