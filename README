@@ -10,5 +10,5 @@ Types of Charts-
 Table:
 Outputs html for a nice looking table.
 
-j = JSONToChart.new(JSON for input- can't be a file)
+j = JSONToChart.new(JSON for input- can't be a file, id number/unique identifier number)
 j.table

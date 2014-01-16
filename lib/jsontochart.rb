@@ -1,8 +1,9 @@
 require 'json'
 
 class JSONToChart
-  def initialize(file)
+  def initialize(file, id)
     @input = file
+    @id = id
   end
 
   # Gets titles for columns and type of data then formats for table
@@ -67,7 +68,7 @@ class JSONToChart
         # Add data correctly for the type
         if dhash[key] != nil 
           if dhash[key].is_a? String
-            tmpstring = tmpstring + "'" + dhash[key].gsub(/'/, "\\'") + "'"
+            tmpstring = tmpstring + "'" + dhash[key].delete("'") + "'"
           elsif dhash[key].is_a? Integer
             tmpstring = tmpstring + dhash[key].to_s
           elsif dhash[key] == true || dhash[key] == false
@@ -77,7 +78,7 @@ class JSONToChart
             z = 0
             dhash[key].each do |i|
               z += 1
-              hold = hold + (i.to_s).gsub(/'/, "\\'")
+              hold = hold + (i.to_s).delete("'")
               if j < dhash[key].length
                 hold = hold + ","
               end
@@ -115,14 +116,14 @@ class JSONToChart
       function drawTable() {
         var data = new google.visualization.DataTable();"
       footerhtml = "var table = new
-        google.visualization.Table(document.getElementById('table_div'));
+        google.visualization.Table(document.getElementById('"+@id.to_s+"table_div'));
         table.draw(data, {showRowNumber: true});
       }
     </script>
   </head>
 
   <body>
-    <div id='table_div'></div>
+    <div id='"+@id.to_s+"table_div'></div>
   </body>
 </html>"
 
